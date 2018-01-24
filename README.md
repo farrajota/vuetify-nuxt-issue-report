@@ -19,7 +19,7 @@ $ npm install && npm run generate
 
 The issue revolves around using [v-tabs](https://next.vuetifyjs.com/components/tabs) to route to different views with the [nuxt](https://github.com/nuxt/nuxt.js/) framework.
 
-When attempting to generate static files using the latest version of vuetify (`vuetify@1.0.0-beta.4`) it terminates the process with an error. Using the stable version (`vuetify@0.17.3`) works correctly.
+When attempting to generate static files using the latest version of vuetify (`vuetify@1.0.0-beta.5`) it terminates the process with an error. Using the stable version (`vuetify@0.17.3`) works correctly.
 
 Upgrading packages like `nuxt`, `vue` or any other package does not fix the issue (the error message clearly points that the problem come from the vuetify package itself).
 
@@ -41,10 +41,16 @@ vue init vuetifyjs/nuxt
 cd <proj> && npm install
 ```
 
-3. Install vuetify 1.0.0-beta.4
+3. Install vuetify 1.0.0-beta.5
 
 ```bash
-npm install vuetify@1.0.0-beta.4 --save
+npm install vuetify@1.0.0-beta.5 --save
+```
+
+3.5. (Optional) Install the latest version of `nuxt`
+
+```bash
+npm install nuxt@1.1.1 --save
 ```
 
 4. Add the following code to layouts/default.vue
@@ -72,43 +78,41 @@ npm run generate
 
   ████████████████████ 100%
 
-Build completed in 15.678s
+Build completed in 15.899s
 
 
 
- WARNING  Compiled with 1 warnings                       11:11:43
+ WARNING  Compiled with 1 warnings                                  20:40:05
 
  warning
 
-asset size limit: The following asset(s) exceed the recommended s
-ize limit (300 kB).
+asset size limit: The following asset(s) exceed the recommended size limit (
+300 kB).
 This can impact web performance.
 Assets:
-  vendor.ea0247d362d4a7593cba.js (399 kB)
+  vendor.c59b89ca6354e81abe7f.js (432 kB)
 
-Hash: 3a0538249158632142d9
+Hash: bba9e937db776460c056
 Version: webpack 3.10.0
-Time: 15680ms
-                                   Asset       Size  Chunks
-              Chunk Names
- layouts/default.8a3bc2ed1e5d25810ede.js    2.63 kB       0  [emi
-tted]         layouts/default
-   pages/inspire.b3be5d62bb9901dc1c9e.js  692 bytes       1  [emitted]         pages/inspire
-     pages/index.e9be0503ae250a5fff91.js    1.99 kB       2  [emitted]         pages/index
-          vendor.ea0247d362d4a7593cba.js     399 kB       3  [emitted]  [big]  vendor
-             app.f2b6b62a4ff38d03ba68.js    27.8 kB       4  [emitted]         app
-        manifest.3a0538249158632142d9.js    1.58 kB       5  [emitted]         manifest
-app.41dc6037a4e998209ea36ff7e56fb890.css     274 kB       4  [emitted]         app
+Time: 15902ms
+                                   Asset       Size  Chunks   Chunk Names
+ layouts/default.8a3bc2ed1e5d25810ede.js    2.63 kB       0  [emitted]   layouts/default
+   pages/inspire.b3be5d62bb9901dc1c9e.js  697 bytes       1  [emitted]   pages/inspire
+     pages/index.e9be0503ae250a5fff91.js    1.99 kB       2  [emitted]   pages/index
+          vendor.c59b89ca6354e81abe7f.js     432 kB       3  [emitted]  [big]  vendor
+             app.f2b6b62a4ff38d03ba68.js    27.9 kB       4  [emitted]   app
+        manifest.bba9e937db776460c056.js    1.58 kB       5  [emitted]   manifest
+app.0ae0e6a1ad902bc0e6bf9464800f3ea5.css     275 kB       4  [emitted]   app
                                 LICENSES  645 bytes          [emitted]
  + 3 hidden assets
 
 WARNING in asset size limit: The following asset(s) exceed the recommended size limit (300 kB).
 This can impact web performance.
 Assets:
-  vendor.ea0247d362d4a7593cba.js (399 kB)
-Hash: f518a6ea66ae69cd0e34
+  vendor.c59b89ca6354e81abe7f.js (432 kB)
+Hash: 55e1e27dd6103b323e8c
 Version: webpack 3.10.0
-Time: 7199ms
+Time: 7347ms
              Asset    Size  Chunks             Chunk Names
 server-bundle.json  128 kB          [emitted]
 [Vue warn]: Error in nextTick: "TypeError: Cannot read property 'firstChild' of undefined"
@@ -125,19 +129,19 @@ found in
 
   TypeError: Cannot read property 'firstChild' of undefined
 
-  - vuetify.js:17404 VueComponent.<anonymous>
-    [vuetify-nuxt-issue-report]/[vuetify]/dist/vuetify.js:17404:2    3
+  - vuetify.js:19678 VueComponent.<anonymous>
+    [vuetify-nuxt-issue-report]/[vuetify]/dist/vuetify.js:19678:23
 
   - vue.runtime.common.js:1811 Array.<anonymous>
-    [vuetify-nuxt-issue-report]/[vue]/dist/vue.runtime.common.js:    1811:12
+    [vuetify-nuxt-issue-report]/[vue]/dist/vue.runtime.common.js:1811:12
 
   - vue.runtime.common.js:1732 flushCallbacks
-    [vuetify-nuxt-issue-report]/[vue]/dist/vue.runtime.common.js:    1732:14
+    [vuetify-nuxt-issue-report]/[vue]/dist/vue.runtime.common.js:1732:14
 
 
 
 TypeError: Cannot read property 'firstChild' of undefined
-    at VueComponent.<anonymous> (/home/mf/tmp2/vuetify/vuetify-nuxt-issue-report/node_modules/vuetify/dist/vuetify.js:17404:23)
+    at VueComponent.<anonymous> (/home/mf/tmp2/vuetify/vuetify-nuxt-issue-report/node_modules/vuetify/dist/vuetify.js:19678:23)
     at Array.<anonymous> (/home/mf/tmp2/vuetify/vuetify-nuxt-issue-report/node_modules/vue/dist/vue.runtime.common.js:1811:12)
     at flushCallbacks (/home/mf/tmp2/vuetify/vuetify-nuxt-issue-report/node_modules/vue/dist/vue.runtime.common.js:1732:14)
     at <anonymous>
@@ -149,15 +153,8 @@ npm ERR!
 npm ERR! Failed at the my_proj2@1.0.0 generate script.
 npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
 
-┌──────────────────────────────────────────────────────┐
-│               npm update check failed                │
-│         Try running with sudo or get access          │
-│         to the local update config store via         │
-│ sudo chown -R $USER:$(id -gn $USER) /home/mf/.config │
-└──────────────────────────────────────────────────────┘
-
 npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/mf/.npm/_logs/2018-01-14T11_11_51_224Z-debug.log
+npm ERR!     /home/mf/.npm/_logs/2018-01-24T20_40_13_441Z-debug.log
 ```
 
 ## License
